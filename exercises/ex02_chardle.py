@@ -16,7 +16,7 @@ def input_word() -> (
         len(word) > 5 or len(word) < 5
     ):  # this is to show if len(word) is greater than or less than 5
         print(
-            "Error: Word must contain 5 character."
+            "Error: Word must contain 5 characters."
         )  # put print here because if it was return it would skip the return statement in next line and use that return statement of the error message
         quit()  # I put this here because we want the function to stop running once the word is more thant 5 character
         # putting it here ensures that error statement is printed ans it stops function without disturbing other aspects of function
@@ -31,7 +31,7 @@ def input_letter() -> str:
         len(letter) > 1 or len(letter) < 1
     ):  # checks if schar is more than 1 or less than 1
         print(
-            "Error: Word must contain 5 characters."
+            "Error: Character must be a single character."
         )  # if so it will print this eror message;
         # there is print because if there was a return statement then it would take that into memepry and ignore the return statement below
         quit()  # this ensures that the functions is "quitted" that will not run if the elif statement is true
@@ -58,11 +58,13 @@ def contains_char(check_word: str, check_letter: str) -> None:
             char_count += 1  # increases the char_count so keep track of how many times it was seen
         index += 1  # will always increase the index, and will go back up to the while loop to do the loop over again until the word is all completed.
     if (
-        char_count > 0
+        char_count == 1
     ):  # after loop is completed it goes to next code at same level as the while code, and executes this line of code by seing if the if statement is true
         print(
-            char_count, "instances of", check_letter, "found in", check_word
+            char_count, "instance of", check_letter, "found in", check_word
         )  # if true it prints out this print statment
+    if char_count > 1:
+        print(char_count, "instances of", check_letter, "found in", check_word)
     elif char_count == 0:  # if not then goes to elif and prints this out
         print("No instances of", check_letter, "found in", check_word)
 
