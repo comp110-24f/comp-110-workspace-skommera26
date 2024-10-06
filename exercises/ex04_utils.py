@@ -8,7 +8,11 @@ __author__: str = "730641436"
 
 # first function: itterates through code to see if all integers in list are the same
 def all(same_int: list[int], num: int) -> bool:
+    """takes list and sees if num is equal to all in the list"""
     index: int = 0
+    if len(same_int) == 0:
+        # will return False is the elngthj is 0, and will not enter the wile loop
+        return False
     while index < len(same_int):
         if same_int[index] != num:
             return False  # sees the return and immedialty exits the function --> does not go to while loop, must exits
@@ -19,6 +23,7 @@ def all(same_int: list[int], num: int) -> bool:
 
 # second function that sees is an empty list or not, and if not then returns the max value of that list
 def max(input: list[int]) -> int:
+    """finds the maximum number in the list"""
     index1: int = 0
     num1: int = input[index1]  # this will keep track of the max number,
     # and will change if new max number is found
@@ -37,8 +42,14 @@ def max(input: list[int]) -> int:
 
 # second function that takes two lists and sees if each parameter is equal to one anotehr in the list
 def is_equal(equal_list1: list[int], equal_list2: list[int]) -> bool:
+    """Sees if numbers in equal_lis1 are equal to those in equal_list2"""
     index2: int = 0  # need index to ittterate through list
+    if len(equal_list1) != len(equal_list2):
+        return False
     while index2 < len(equal_list1):  # while loop intial condition
+        if len(equal_list1) != len(equal_list2):
+            # makes sure if lens are equal or not
+            return False  # is not  = False
         if equal_list1[index2] == equal_list2[index2]:
             # if both indexes are equal it will add onto index
             index2 += 1  # adds onto index to prevent infinite loops
