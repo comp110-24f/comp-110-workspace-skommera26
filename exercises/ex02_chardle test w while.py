@@ -43,29 +43,20 @@ def contains_char(check_word: str, check_letter: str) -> None:
     print(
         "Searching for", check_letter, "in", check_word
     )  # this is a print functions that will tell the reader whatt he function is doing, in this case it is searching for the letter in the word given
+    index: int = 0  # index will start at zero, local variable!
     char_count: int = (
         0  # char_count will be used to keep track of how mnay times a character is found, or how many times it is seen
     )
 
-    # since we can't use a while function we have to induvidually check each letter's index to see if it matches the letter, hence the many if statements
-
-    if check_word[0] == check_letter:
-        print(check_letter, "found at index 0")
-        char_count += 1  # check if at index 0 is equal to letter; if so will print the fucntion and add char_count
-    if check_word[1] == check_letter:
-        print(check_letter, "found at index 1")
-        char_count += 1  # check if at index 1 is equal to letter; if so will print the fucntion and add char_count; if not will continue to next function
-    if check_word[2] == check_letter:
-        print(check_letter, "found at index 2")
-        char_count += 1  # check if at index 2 is equal to letter; if so will print the fucntion and add char_count; if not will continue to next function
-    if check_word[3] == check_letter:
-        print(check_letter, "found at index 3")
-        char_count += 1  # check if at index 3 is equal to letter; if so will print the fucntion and add char_count; if not will continue to next function
-    if check_word[4] == check_letter:
-        print(check_letter, "found at index 4")
-        char_count += 1  # check if at index 4 is equal to letter; if so will print the fucntion and add char_count; if not will continue to next function
-    # not need for index five since the index of a 5 letter funcition will only go up until 4, and the length will stay at 5
-
+    while index < len(
+        check_word
+    ):  # ensures that it stays within the range and will not give error message
+        if (
+            check_word[index] == check_letter
+        ):  # if the index of the word is equal to the letter it will step into the then block, print out the letter nad index it was found
+            print(check_letter, "found at index", index)
+            char_count += 1  # increases the char_count so keep track of how many times it was seen
+        index += 1  # will always increase the index, and will go back up to the while loop to do the loop over again until the word is all completed.
     if (
         char_count == 1
     ):  # after loop is completed it goes to next code at same level as the while code, and executes this line of code by seing if the if statement is true
